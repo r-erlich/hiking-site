@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <title>Add a New Hike</title>
+</head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Hike</h1>
+    <form action="/users/<%= user._id %>/hikes" method="POST">
+      <label for="location">Location:</label>
+      <input type="text" name="location" id="location">
+      
+      <label for="hikeName">hikeName:</label>
+      <input type="text" name="hikeName" id="hikeName">
+      
+      <label for="review">Review:</label>
+      <textarea name="review" id="review"></textarea>
+      
+      
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <button type="submit">Add Hike</button>
+    </form>
+  </body>
+</html>

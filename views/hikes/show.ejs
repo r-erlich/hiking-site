@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title><%= hike.hikeName %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1><%= hike.hikeName %> at <%= hike.location %></h1>
+  <% if (hike.review) { %>
+    <p>review: <%= hike.review %></p>
+  <% } %>
+  <p>Rating: <%= hike.rating %></p>
+
+  <a href="/users/<%= user._id %>/hikes/<%= hike._id %>/edit">
+    Edit this hike
+  </a>
+
+  <form
+    action="/users/<%= user._id %>/hikes/<%= hike._id %>?_method=DELETE"
+    method="POST"
+    >
+    <button type="submit">Delete this hike</button>
+  </form>
