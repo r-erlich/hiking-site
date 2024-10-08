@@ -13,8 +13,11 @@
     action="/users/<%= user._id %>/hikes/<%= hike._id %>?_method=PUT"
     method="POST"
   >
-      <label for="hikeName">hikeName:</label>
+      <label for="hikeName">Hike Name:</label>
       <input type="text" name="hikeName" id="hikeName" value="<%= hike.hikeName %>">
+
+      <label for="location">Location:</label>
+      <input type="text" name="location" id="location" value="<%= hike.location %>">
 
       <label for="review">Notes:</label>
       <textarea 
