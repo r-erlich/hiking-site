@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editing <%= hike.hikeName %></title>
+</head>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit <%= hike.hikeName %> at <%= hike.location %></h1>
+    <form 
+    action="/users/<%= user._id %>/hikes/<%= hike._id %>?_method=PUT"
+    method="POST"
+  >
+      <label for="hikeName">hikeName:</label>
+      <input type="text" name="hikeName" id="hikeName" value="<%= hike.hikeName %>">
+
+      <label for="review">Notes:</label>
+      <textarea 
+        name="review" 
+        id="review"
+        placeholder="<%= hike.review %>"
+        ></textarea>
+
+
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+          <option 
+            value="1"
+            <%= hike.rating === '1' ? 'selected' : '' %>
+            >
+            1
+          </option>
+          <option 
+            value="2"
+            <%= hike.rating === '2' ? 'selected' : '' %>
+            >
+           2
+          </option>
+          <option 
+            value="3"
+            <%= hike.rating === '3' ? 'selected' : '' %>
+            >
+            3
+          </option>
+          <option 
+            value="4"
+            <%= hike.rating === '4' ? 'selected' : '' %>
+            >
+          4
+          </option>
+          <option 
+            value="5"
+            <%= hike.rating === '5' ? 'selected' : '' %>
+            >
+           5
+          </option>
+          <option 
+          value="6"
+          <%= hike.rating === '6' ? 'selected' : '' %>
+          >
+          6
+        </option>
+        <option 
+          value="7"
+          <%= hike.rating === '7' ? 'selected' : '' %>
+          >
+         7
+        </option>
+        <option 
+          value="8"
+          <%= hike.rating === '8' ? 'selected' : '' %>
+          >
+          8
+        </option>
+        <option 
+          value="9"
+          <%= hike.rating === '9' ? 'selected' : '' %>
+          >
+        9
+        </option>
+        <option 
+          value="10"
+          <%= hike.rating === '10' ? 'selected' : '' %>
+          >
+         10
+        </option>
+        </select>
+        <button type="submit">Edit Hike</button>
+    </form>
+  </body>
+</html>
