@@ -26,7 +26,7 @@ const hikeSchema = new mongoose.Schema({
           type: String,
           required: true,
         },
-        hikes: [hikeSchemaSchema]
+        hikes: [hikeSchema]
       });
       
       const User = mongoose.model('User', userSchema);

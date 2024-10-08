@@ -8,7 +8,7 @@ const morgan = require('morgan');
 const session = require('express-session');
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
-const applicationsController = require('./controllers/applications.js');
+const hikesController = require('./controllers/hikes.js');
 
 const authController = require('./controllers/auth.js');
 
@@ -34,3 +34,18 @@ app.use(methodOverride('_method'));
   })
 );
 app.use(passUserToView);
+
+app.get('/', (req, res) => {
+  if (req.session.user) {
+   res.redirect(`/users/${req.session.user._id}/hikes`);
+  } else {
+     res.render('index.ejs');
+  }
+});
+app.use('/auth', authController);
+app.use(isSignedIn);
+
+app.use('/users/:userId/hikes', hikesController);
+app.listen(port, () => {
+  console.log(`The express app is ready on port ${port}!`);
+});
