@@ -14,13 +14,17 @@
   <% } %>
   <p>Rating: <%= hike.rating %></p>
 
-  <a href="/users/<%= user._id %>/hikes/<%= hike._id %>/edit">
-    Edit this hike
-  </a>
+  <% if (owner) {%>
+    <a href="/users/<%= user._id %>/hikes/<%= hike._id %>/edit">
+      Edit this hike
+    </a>
 
-  <form
-    action="/users/<%= user._id %>/hikes/<%= hike._id %>?_method=DELETE"
-    method="POST"
-    >
-    <button type="submit">Delete this hike</button>
-  </form>
+    <form
+      action="/users/<%= user._id %>/hikes/<%= hike._id %>?_method=DELETE"
+      method="POST"
+      >
+      <button type="submit">Delete this hike</button>
+    </form>
+  <% } %>
+</body>
+</html>

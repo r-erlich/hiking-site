@@ -32,12 +32,30 @@ router.get('/new', async (req, res) => {
     }
   });
 
+  router.get("/all", async (req, res)=> {
+    try {
+      const users = await User.find({}).select("username hikes")
+      res.render("hikes/hikes.ejs", {users})
+    } catch (error) {
+      console.log(error);
+      res.redirect('/')
+    }
+  })
+
+  
+
   router.get('/:hikeId', async (req, res) => {
     try {
-      const currentUser = await User.findById(req.session.user._id);
+      const selectedUserId = req.baseUrl.split("/")[2]
+      
+      const currentUser = await User.findById(selectedUserId);
       const hike = currentUser.hikes.id(req.params.hikeId);
+
+      const ownerOfHike = selectedUserId === req.session.user._id
+
       res.render('hikes/show.ejs', {
         hike: hike,
+        owner: ownerOfHike
       });
     } catch (error) {
       console.log(error);

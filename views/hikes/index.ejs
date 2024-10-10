@@ -13,7 +13,7 @@
       <% hikes?.forEach((hike)=>{ %>
         <li>
           <a href="/users/<%= user._id %>/hikes/<%= hike._id %>">
-          <%= hike.hikeName %> at <%= hike.location %></li>
+          <%= hike.hikeName %> at <%= hike.location %></a></li>
       <% }) %>
     </ul>
 </body>
