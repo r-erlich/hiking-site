@@ -6,15 +6,15 @@ I have a deep love for hiking. It is one of my favorite pastimes and often a foc
 
 ## Techologies Used
 The technoliges used on this website are 
-*Node.js
-*Express.js
-*Mongoose
-*MongoDB
-*EJS
-*CSS
+* Node.js
+* Express.js
+* Mongoose
+* MongoDB
+* EJS
+* CSS
 
 ## Stretch Goals
-*Add commenting
-*Add ability to have friend list 
-*Add ability to comment on friend's posts
-*Create database of hikes people will be able to pull from when adding hikes to their profile
+* Add commenting
+* Add ability to have friend list 
+* Add ability to comment on friend's posts
+* Create database of hikes people will be able to pull from when adding hikes to their profile
